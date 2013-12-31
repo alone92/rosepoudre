@@ -1,0 +1,797 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Arcadia\n"
+"POT-Creation-Date: 2013-11-12 14:49+0400\n"
+"PO-Revision-Date: 2013-11-12 14:49+0400\n"
+"Last-Translator: CR1000Team <cr1000team@gmail.com>\n"
+"Language-Team: CR1000Team <cr1000team@gmail.com>\n"
+"Language: English\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: comments.php:28
+msgid "Leave A Comment"
+msgstr ""
+
+#: comments.php:28
+msgid "1 Comment"
+msgstr ""
+
+#: comments.php:28
+msgid "% Comments"
+msgstr ""
+
+#: comments.php:38
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: comments.php:39
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: format-aside.php:9 format-audio.php:34 format-gallery.php:36
+#: format-standard.php:33 format-video.php:38
+msgid "Read more..."
+msgstr ""
+
+#: format-audio.php:11 format-gallery.php:11 format-standard.php:11
+#: format-video.php:11
+msgid " 0"
+msgstr ""
+
+#: format-audio.php:11 format-gallery.php:11 format-standard.php:11
+#: format-video.php:11
+msgid " 1"
+msgstr ""
+
+#: format-audio.php:11 format-gallery.php:11 format-standard.php:11
+#: format-video.php:11
+msgid " %"
+msgstr ""
+
+#: format-quote.php:4
+#, php-format
+msgid "Permanent Link to %s"
+msgstr ""
+
+#: functions.php:61
+msgid "Loading..."
+msgstr ""
+
+#: functions.php:479
+#, php-format
+msgid "<cite class=\"fn\">%s</cite>"
+msgstr ""
+
+#: functions.php:481
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: functions.php:481
+msgid "(Edit)"
+msgstr ""
+
+#: functions.php:634
+msgid "Prev"
+msgstr ""
+
+#: functions.php:635
+msgid "Next"
+msgstr ""
+
+#: index.php:47
+msgid " Previous Post"
+msgstr ""
+
+#: index.php:50
+msgid "Next Post "
+msgstr ""
+
+#: index.php:61 page-blog.php:57
+msgid "<i class=\"icon-chevron-left\"></i> Newer Posts"
+msgstr ""
+
+#: index.php:62 page-blog.php:58
+msgid "Older Posts <i class=\"icon-chevron-right\"></i>"
+msgstr ""
+
+#: options.php:60
+msgid "General Settings"
+msgstr ""
+
+#: options.php:63
+msgid "Logo Upload"
+msgstr ""
+
+#: options.php:64
+msgid "Upload your image to use in the header."
+msgstr ""
+
+#: options.php:68
+msgid "Tagline"
+msgstr ""
+
+#: options.php:69
+msgid "Enable tagline"
+msgstr ""
+
+#: options.php:74
+msgid "Favicon Upload"
+msgstr ""
+
+#: options.php:75
+msgid "Upload your .png or .ico image to use in the favicon."
+msgstr ""
+
+#: options.php:79
+msgid "Tracking Code"
+msgstr ""
+
+#: options.php:80
+msgid "Put your Google Analytics or other tracking code here."
+msgstr ""
+
+#: options.php:87
+msgid "Style Settings"
+msgstr ""
+
+#: options.php:90
+msgid "Background Color"
+msgstr ""
+
+#: options.php:91
+msgid ""
+"Select the color you would like your background to be. The demo site uses "
+"#ffffff."
+msgstr ""
+
+#: options.php:96
+msgid "Background Image"
+msgstr ""
+
+#: options.php:97
+msgid "Upload your image to use in the background."
+msgstr ""
+
+#: options.php:101
+msgid "Background Repeat"
+msgstr ""
+
+#: options.php:102
+msgid "Check on for repeat."
+msgstr ""
+
+#: options.php:108
+msgid "Header Color"
+msgstr ""
+
+#: options.php:109
+msgid ""
+"Select the color you would like your Header to be. The demo site uses "
+"#ffffff."
+msgstr ""
+
+#: options.php:114
+msgid "Logo Color"
+msgstr ""
+
+#: options.php:115
+msgid ""
+"Select the color you would like your Logo Color to be. The demo site uses "
+"#2f2f2f."
+msgstr ""
+
+#: options.php:120
+msgid "Tagline Color"
+msgstr ""
+
+#: options.php:121
+msgid ""
+"Select the color you would like your Tagline Color to be. The demo site uses "
+"#2f2f2f."
+msgstr ""
+
+#: options.php:126
+msgid "Menu Background Color"
+msgstr ""
+
+#: options.php:127
+msgid ""
+"Select the color you would like your Menu background to be. The demo site "
+"uses #eeeff1."
+msgstr ""
+
+#: options.php:132
+msgid "Menu Link Color"
+msgstr ""
+
+#: options.php:133
+msgid ""
+"Select the color you would like your Menu Links to be. The demo site uses "
+"#333333."
+msgstr ""
+
+#: options.php:138
+msgid "Menu Hover Color"
+msgstr ""
+
+#: options.php:139
+msgid ""
+"Select the color you would like your Menu Hover to be. The demo site uses "
+"#60baff."
+msgstr ""
+
+#: options.php:145
+msgid "Dropdown Menu Color"
+msgstr ""
+
+#: options.php:146
+msgid ""
+"Select the color you would like your Dropdown Menu to be. The demo site uses "
+"#eeeff1."
+msgstr ""
+
+#: options.php:151
+msgid "Dropdown Menu Link Color"
+msgstr ""
+
+#: options.php:152
+msgid ""
+"Select the color you would like your Dropdown Menu Links to be. The demo "
+"site uses #444444."
+msgstr ""
+
+#: options.php:157
+msgid "Buttons Color"
+msgstr ""
+
+#: options.php:158
+msgid ""
+"Select the color you would like your Buttons to be. The demo site uses "
+"#2f2f2f."
+msgstr ""
+
+#: options.php:163
+msgid "Buttons Text Color"
+msgstr ""
+
+#: options.php:164
+msgid ""
+"Select the color you would like your Buttons Text to be. The demo site uses "
+"#2f2f2f."
+msgstr ""
+
+#: options.php:169
+msgid "Buttons Hover Color"
+msgstr ""
+
+#: options.php:170
+msgid ""
+"Select the color you would like your Buttons Hover to be. The demo site uses "
+"#2f2f2f."
+msgstr ""
+
+#: options.php:175
+msgid "Buttons Text Hover Color"
+msgstr ""
+
+#: options.php:176
+msgid ""
+"Select the color you would like your Buttons Text Hover to be. The demo site "
+"uses #ffffff."
+msgstr ""
+
+#: options.php:181
+msgid "Sidebar Tags Color"
+msgstr ""
+
+#: options.php:182
+msgid ""
+"Select the color you would like your Tags in sidebar to be. The demo site "
+"uses #eeeff1."
+msgstr ""
+
+#: options.php:187
+msgid "Sidebar Tags Hover Color"
+msgstr ""
+
+#: options.php:188
+msgid ""
+"Select the color you would like your Tags Hover in sidebar to be. The demo "
+"site uses #2f2f2f."
+msgstr ""
+
+#: options.php:193
+msgid "Footer Tags Color"
+msgstr ""
+
+#: options.php:194
+msgid ""
+"Select the color you would like your Tags in footer to be. The demo site "
+"uses #eeeff1."
+msgstr ""
+
+#: options.php:199
+msgid "Footer Tags Hover Color"
+msgstr ""
+
+#: options.php:200
+msgid ""
+"Select the color you would like your Tags Hover in footer to be. The demo "
+"site uses #2f2f2f."
+msgstr ""
+
+#: options.php:205
+msgid "Sidebar Tags Text Color"
+msgstr ""
+
+#: options.php:206
+msgid ""
+"Select the color you would like your Tags Text to be. The demo site uses "
+"#2f2f2f."
+msgstr ""
+
+#: options.php:211
+msgid "Sidebar Tags Text Hover Color"
+msgstr ""
+
+#: options.php:212
+msgid ""
+"Select the color you would like your Tags Text Hover to be. The demo site "
+"uses #ffffff."
+msgstr ""
+
+#: options.php:217
+msgid "Footer Tags Text Color"
+msgstr ""
+
+#: options.php:218
+msgid ""
+"Select the color you would like your Footer Tags Text to be. The demo site "
+"uses #cacaca."
+msgstr ""
+
+#: options.php:223
+msgid "Footer Tags Text Hover Color"
+msgstr ""
+
+#: options.php:224
+msgid ""
+"Select the color you would like your Footer Tags Text Hover to be. The demo "
+"site uses #ffffff."
+msgstr ""
+
+#: options.php:229
+msgid "Sidebar Text Color"
+msgstr ""
+
+#: options.php:230
+msgid ""
+"Select the color you would like your post Sidebar Text to be. The demo site "
+"uses #8c99a4."
+msgstr ""
+
+#: options.php:235
+msgid "Sidebar Title Color"
+msgstr ""
+
+#: options.php:236
+msgid ""
+"Select the color you would like your post Sidebar Titles to be. The demo "
+"site uses #8c99a4."
+msgstr ""
+
+#: options.php:241
+msgid "Footer Color"
+msgstr ""
+
+#: options.php:242
+msgid ""
+"Select the color you would like your Footer to be. The demo site uses "
+"#333333."
+msgstr ""
+
+#: options.php:247
+msgid "Footer Text Color"
+msgstr ""
+
+#: options.php:248
+msgid ""
+"Select the color you would like your Footer Text to be. The demo site uses "
+"#999999."
+msgstr ""
+
+#: options.php:253
+msgid "Footer Title Color"
+msgstr ""
+
+#: options.php:254
+msgid ""
+"Select the color you would like your Footer Title to be. The demo site uses "
+"#ffffff."
+msgstr ""
+
+#: options.php:261
+msgid "Post Style Settings"
+msgstr ""
+
+#: options.php:264
+msgid "Post Excerpt Settings"
+msgstr ""
+
+#: options.php:273
+msgid "Post Excerpt Length"
+msgstr ""
+
+#: options.php:274
+msgid "Type how many words show in exerpt."
+msgstr ""
+
+#: options.php:279
+msgid "Read More Link Name"
+msgstr ""
+
+#: options.php:280
+msgid "Write what you want to see instead of the \"Read more\"."
+msgstr ""
+
+#: options.php:285
+msgid "Date Link Color"
+msgstr ""
+
+#: options.php:286
+msgid ""
+"Select the color you would like your post Date Link to be. The demo site "
+"uses #2f2f2f."
+msgstr ""
+
+#: options.php:291
+msgid "Post Title Color"
+msgstr ""
+
+#: options.php:292
+msgid ""
+"Select the color you would like your Post Title to be. The demo site uses "
+"#2f2f2f."
+msgstr ""
+
+#: options.php:297
+msgid "Post Title Hover Color"
+msgstr ""
+
+#: options.php:298
+msgid ""
+"Select the color you would like your Post Title Hover to be. The demo site "
+"uses #000000."
+msgstr ""
+
+#: options.php:303
+msgid "Post Meta Links Color"
+msgstr ""
+
+#: options.php:304
+msgid ""
+"Select the color you would like your Post Meta Links to be. The demo site "
+"uses #2f2f2f."
+msgstr ""
+
+#: options.php:309
+msgid "Post Links Color"
+msgstr ""
+
+#: options.php:310
+msgid ""
+"Select the color you would like your Post Links to be. The demo site uses "
+"#000000."
+msgstr ""
+
+#: options.php:315
+msgid "Post Text Color"
+msgstr ""
+
+#: options.php:316
+msgid ""
+"Select the color you would like your Post Text to be. The demo site uses "
+"#666666."
+msgstr ""
+
+#: options.php:323
+msgid "Post Bar Icons Color"
+msgstr ""
+
+#: options.php:324
+msgid ""
+"Select the color you would like your Post Bar icons to be. The demo site "
+"uses #5f5e5c."
+msgstr ""
+
+#: options.php:329
+msgid "Post Bar Icons Hover Color"
+msgstr ""
+
+#: options.php:330
+msgid ""
+"Select the color you would like your Post Bar icons hover to be. The demo "
+"site uses #60baff."
+msgstr ""
+
+#: page-masonry.php:50
+msgid "Load More"
+msgstr ""
+
+#: includes/meta/meta-boxes.php:40
+msgid "Gallery Settings"
+msgstr ""
+
+#: includes/meta/meta-boxes.php:41
+msgid ""
+"Upload images to this post using the below controls. Please note that the "
+"Featured Image will be used as the \"cover\" image and will be skipped in "
+"the gallery."
+msgstr ""
+
+#: includes/meta/meta-boxes.php:47 includes/meta/meta-boxes.php:51
+msgid "Upload Images"
+msgstr ""
+
+#: includes/meta/meta-boxes.php:48
+msgid "Click to upload images."
+msgstr ""
+
+#: includes/meta/meta-boxes.php:60
+msgid "Quote Settings"
+msgstr ""
+
+#: includes/meta/meta-boxes.php:61 includes/meta/meta-boxes.php:68
+msgid "Input your quote."
+msgstr ""
+
+#: includes/meta/meta-boxes.php:67
+msgid "The Quote"
+msgstr ""
+
+#: includes/meta/meta-boxes.php:80
+msgid "Link Settings"
+msgstr ""
+
+#: includes/meta/meta-boxes.php:81
+msgid "Input your link"
+msgstr ""
+
+#: includes/meta/meta-boxes.php:87
+msgid "The Link"
+msgstr ""
+
+#: includes/meta/meta-boxes.php:88
+msgid "Input your link. Example: http://cr1000team.com"
+msgstr ""
+
+#: includes/meta/meta-boxes.php:100
+msgid "Video Settings"
+msgstr ""
+
+#: includes/meta/meta-boxes.php:101
+msgid "These settings enable you to embed videos into your posts."
+msgstr ""
+
+#: includes/meta/meta-boxes.php:107 includes/meta/meta-boxes.php:127
+msgid "Embedded Code"
+msgstr ""
+
+#: includes/meta/meta-boxes.php:108
+msgid ""
+"Paste the embed code of YouTube or Vimeo video here. Dont change width and "
+"height for YouTube and Vimeo embed code. For other videos set width=\"794\" "
+"and any height."
+msgstr ""
+
+#: includes/meta/meta-boxes.php:120
+msgid "Audio Settings"
+msgstr ""
+
+#: includes/meta/meta-boxes.php:121
+msgid "These settings enable you to embed audio into your posts."
+msgstr ""
+
+#: includes/meta/meta-boxes.php:128
+msgid ""
+"Paste the embed code of Soundcloud, 8tracks or other similar services. Width "
+"is best at 794px with any height.<br>Important note! For Soundcloud use "
+"<strong>embed code</strong> not WordPress code"
+msgstr ""
+
+#: includes/meta/meta-boxes.php:361 includes/meta/meta-boxes.php:363
+msgid "Edit Gallery"
+msgstr ""
+
+#: includes/options-framework/options-framework.php:70
+#, php-format
+msgid ""
+"Your current theme does not have support for the Options Framework plugin.  "
+"<a href=\"%1$s\" target=\"_blank\">Learn More</a> | <a href=\"%2$s\">Hide "
+"Notice</a>"
+msgstr ""
+
+#: includes/options-framework/options-framework.php:250
+#: includes/options-framework/options-framework.php:465
+msgid "Theme Options"
+msgstr ""
+
+#: includes/options-framework/options-framework.php:281
+msgid "Clear"
+msgstr ""
+
+#: includes/options-framework/options-framework.php:282
+msgid "Default"
+msgstr ""
+
+#: includes/options-framework/options-framework.php:283
+msgid "Select Color"
+msgstr ""
+
+#: includes/options-framework/options-framework.php:329
+msgid "Click OK to reset. Any theme settings will be lost!"
+msgstr ""
+
+#: includes/options-framework/options-framework.php:361
+msgid "Default options restored."
+msgstr ""
+
+#: includes/options-framework/options-framework.php:415
+msgid "Options saved."
+msgstr ""
+
+#: includes/options-framework/options-media-uploader.php:46
+msgid "No file chosen"
+msgstr ""
+
+#: includes/options-framework/options-media-uploader.php:49
+#: includes/options-framework/options-media-uploader.php:100
+msgid "Upload"
+msgstr ""
+
+#: includes/options-framework/options-media-uploader.php:51
+#: includes/options-framework/options-media-uploader.php:101
+msgid "Remove"
+msgstr ""
+
+#: includes/options-framework/options-media-uploader.php:54
+msgid "Upgrade your version of WordPress for full media support."
+msgstr ""
+
+#: includes/options-framework/options-media-uploader.php:78
+msgid "View File"
+msgstr ""
+
+#: includes/options-framework/options-sanitize.php:236
+msgid "No Repeat"
+msgstr ""
+
+#: includes/options-framework/options-sanitize.php:237
+msgid "Repeat Horizontally"
+msgstr ""
+
+#: includes/options-framework/options-sanitize.php:238
+msgid "Repeat Vertically"
+msgstr ""
+
+#: includes/options-framework/options-sanitize.php:239
+msgid "Repeat All"
+msgstr ""
+
+#: includes/options-framework/options-sanitize.php:252
+msgid "Top Left"
+msgstr ""
+
+#: includes/options-framework/options-sanitize.php:253
+msgid "Top Center"
+msgstr ""
+
+#: includes/options-framework/options-sanitize.php:254
+msgid "Top Right"
+msgstr ""
+
+#: includes/options-framework/options-sanitize.php:255
+msgid "Middle Left"
+msgstr ""
+
+#: includes/options-framework/options-sanitize.php:256
+msgid "Middle Center"
+msgstr ""
+
+#: includes/options-framework/options-sanitize.php:257
+msgid "Middle Right"
+msgstr ""
+
+#: includes/options-framework/options-sanitize.php:258
+msgid "Bottom Left"
+msgstr ""
+
+#: includes/options-framework/options-sanitize.php:259
+msgid "Bottom Center"
+msgstr ""
+
+#: includes/options-framework/options-sanitize.php:260
+msgid "Bottom Right"
+msgstr ""
+
+#: includes/options-framework/options-sanitize.php:273
+msgid "Scroll Normally"
+msgstr ""
+
+#: includes/options-framework/options-sanitize.php:274
+msgid "Fixed in Place"
+msgstr ""
+
+#: includes/options-framework/options-sanitize.php:348
+msgid "Normal"
+msgstr ""
+
+#: includes/options-framework/options-sanitize.php:349
+msgid "Italic"
+msgstr ""
+
+#: includes/options-framework/options-sanitize.php:350
+msgid "Bold"
+msgstr ""
+
+#: includes/options-framework/options-sanitize.php:351
+msgid "Bold Italic"
+msgstr ""
+
+#: includes/widgets/likes.php:39
+msgid ""
+"We recommend you check this option when using the Shutterbug theme to avoid "
+"conflicts"
+msgstr ""
+
+#: includes/widgets/likes.php:50
+msgid "AJAX Like Counts on page load"
+msgstr ""
+
+#: includes/widgets/likes.php:51
+msgid ""
+"If you are using a cacheing plugin, you may want to dynamically load the "
+"like counts via AJAX."
+msgstr ""
+
+#: includes/widgets/likes.php:60
+msgid ""
+"The text after the count when no one has liked a post/page. Leave blank for "
+"no text after the count."
+msgstr ""
+
+#: includes/widgets/likes.php:69
+msgid ""
+"The text after the count when one person has liked a post/page. Leave blank "
+"for no text after the count."
+msgstr ""
+
+#: includes/widgets/likes.php:78
+msgid ""
+"The text after the count when more than one person has liked a post/page. "
+"Leave blank for no text after the count."
+msgstr ""
+
+#: includes/widgets/likes.php:83
+msgid "To use cr Likes in your posts and pages you can use the shortcode:"
+msgstr ""
+
+#: includes/widgets/likes.php:85
+msgid ""
+"To use cr Likes manually in your theme template use the following PHP code:"
+msgstr ""
+
+#: includes/widgets/likes.php:218
+msgid "Like this"
+msgstr ""
+
+#: includes/widgets/likes.php:221
+msgid "You already like this"
+msgstr ""

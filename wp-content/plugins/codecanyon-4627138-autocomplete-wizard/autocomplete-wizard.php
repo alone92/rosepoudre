@@ -1,0 +1,466 @@
+<?php
+/*
+Plugin Name: Autocomplete Wizard
+Version: 1.2.1
+Plugin URI: http://getbutterfly.com/wordpress-plugins/autocomplete-wizard/
+Description: <strong>Autocomplete Wizard</strong> plugin helps your users find what they are looking for better and faster. No more searching in the dark, no more 404 errors! Autocomplete your content and redirect your users.
+Author: Ciprian Popescu
+Author URI: http://getbutterfly.com/
+
+Copyright 2013 Ciprian Popescu (email: getbutterfly@gmail.com)
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+define('ACW_PLUGIN_URL', WP_PLUGIN_URL . '/' . dirname(plugin_basename(__FILE__)));
+define('ACW_PLUGIN_PATH', WP_PLUGIN_DIR . '/' . dirname(plugin_basename(__FILE__)));
+define('ACW_VERSION', '1.2.1');
+
+function acw_styles() {
+	wp_enqueue_style('acw-style', ACW_PLUGIN_URL . '/css/chosen.css');	
+}
+function acw_scripts() {
+	wp_enqueue_script('acw-jquery', plugins_url('/js/chosen.jquery.js', __FILE__), array('jquery'));
+	wp_enqueue_script('acw-functions', plugins_url('/js/functions.js', __FILE__));
+}
+
+add_action('wp_print_styles', 'acw_styles');
+add_action('wp_enqueue_scripts', 'acw_scripts');
+
+add_action('admin_menu', 'acw_plugin_menu');
+add_action('wp_head', 'acw_head');
+
+function acw_activate() {
+	add_option('acw_search_label', 'search');
+	add_option('acw_select_placeholder', 'Search...');
+	add_option('acw_highlight_colour', '#DD3333');
+}
+register_activation_hook(__FILE__, 'acw_activate');
+
+// Iris colour picker
+add_action('admin_enqueue_scripts', 'acw_enqueue_color_picker');
+function acw_enqueue_color_picker($hook_suffix) {
+	wp_enqueue_style('wp-color-picker');
+	wp_enqueue_script('acw-iris', plugins_url('js/functions.admin.js', __FILE__), array('wp-color-picker'), false, true);
+}
+
+function acw_head() {
+	$acw_highlight_colour = get_option('acw_highlight_colour');
+
+	echo '<style type="text/css">
+	.chzn-container .chzn-results .highlighted { background-color: ' . $acw_highlight_colour . '; }
+	.chzn-container-active .chzn-single { border: 1px solid ' . $acw_highlight_colour . '; }
+	</style>';
+}
+
+function acw_plugin_menu() {
+	add_options_page(__('Autocomplete Wizard', 'acw'), __('Autocomplete Wizard', 'acw'), 'manage_options', 'acw', 'acw_plugin_options');
+}
+
+function acw_plugin_options() {
+	if(isset($_POST['acw_submit'])) {
+		update_option('acw_search_label', $_POST['acw_search_label']);
+		update_option('acw_select_placeholder', $_POST['acw_select_placeholder']);
+		update_option('acw_highlight_colour', $_POST['acw_highlight_colour']);
+
+		echo '<div class="updated"><p><strong>Settings saved.</strong></p></div>';
+	}
+	?>
+	<div class="wrap">
+		<div id="icon-options-general" class="icon32"></div>
+		<h2>Autocomplete Wizard</h2>
+		<div id="poststuff" class="ui-sortable meta-box-sortables">
+			<div class="postbox">
+				<h3><?php _e('General Settings', 'acw'); ?></h3>
+				<div class="inside">
+					<p>You are currently using <b>Autocomplete Wizard</b> version <b><?php echo ACW_VERSION; ?></b> with <b><?php bloginfo('charset'); ?></b> charset.</p>
+					<form name="form1" method="post" action="">
+						<p>
+							<input type="text" class="regular-text" name="acw_search_label" id="acw_search_label" value="<?php echo get_option('acw_search_label'); ?>"> 
+							<label for="acw_search_label">Search button label</label>
+						</p>
+						<p>
+							<input type="text" class="regular-text" name="acw_select_placeholder" id="acw_select_placeholder" value="<?php echo get_option('acw_select_placeholder'); ?>"> 
+							<label for="acw_select_placeholder">Select field placeholder</label>
+						</p>
+						<p>
+							<label for="acw_highlight_colour">Highlight colour</label><br>
+							<input type="text" name="acw_highlight_colour" id="acw_highlight_colour" class="gs_colorPicker" data-default-color="#DD3333" value="<?php echo get_option('acw_highlight_colour'); ?>">
+						</p>
+						<p class="submit">
+							<input type="submit" name="acw_submit" class="button-primary" value="Save Changes">
+						</p>
+					</form>
+
+					<h4>Plugin Usage: Shortcodes</h4>
+					<p>
+						Add the <code>[ac-meta name="email"]</code> shortcode to display all posts with the same meta value (e.g. &quot;email&quot;).<br>
+						Add the <code>[ac-posts comments="yes"]</code> shortcode to display all posts and show number of comments.<br>
+						Add the <code>[ac-posts comments="no"]</code> shortcode to display all posts and hide number of comments.<br>
+						Add the <code>[ac-posts category="Adventures"]</code> shortcode to display all posts in a specific category. (e.g. &quot;Adventures&quot;).<br>
+						Add the <code>[ac-pages comments="yes"]</code> shortcode to display all pages and show number of comments.<br>
+						Add the <code>[ac-pages comments="no"]</code> shortcode to display all pages and hide number of comments.<br>
+						Add the <code>[ac-all comments="yes"]</code> shortcode to display all posts and pages and show number of comments.<br>
+						Add the <code>[ac-all comments="no"]</code> shortcode to display all posts and pages and hide number of comments.<br>
+						Add the <code>[ac-categories]</code> shortcode to display all categories.<br>
+						Add the <code>[ac-custom type="testimonials"]</code> shortcode to display all custom post types (e.g. &quot;testimonials&quot;).<br>
+						Add the <code>[ac-taxonomy name="testimonials_category"]</code> shortcode to display all custom taxonomies (e.g. &quot;testimonials_category&quot;).<br>
+						Add the <code>[ac-tax-posts taxonomyname="testimonials_category" name="business" type="testimonials"]</code> shortcode to display all custom posts in a specific taxonomy.<br>
+						Add the <code>[ac-tags]</code> shortcode to display all tags.<br>
+						Add the <code>[ac-tagged-posts tag="blog"]</code> shortcode to display all posts with a specific tag.
+					</p>
+
+					<h3>Plugin Support</h3>
+					<p>For support, feature requests and bug reporting, please visit the <a href="http://getbutterfly.com/wordpress-plugins/autocomplete-wizard/" rel="external">official website</a>.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+<?php
+}
+
+
+function ac_meta_value($atts, $content = null) { // autocomplete :: meta value
+	extract(shortcode_atts(array(
+		'name' => '',
+	), $atts));
+
+	global $wpdb;
+	$acw_search_label = get_option('acw_search_label');
+	$acw_select_placeholder = get_option('acw_select_placeholder');
+
+	$display = '';
+	$display .= '
+	<form name="search" action="' . $_SERVER['PHP_SELF'] . '" method="get">
+		<select name="' . $name . '" class="chzn-select" data-placeholder="' . $acw_select_placeholder . '">
+			<option value=""></option>';
+			$metakey = $name;
+			$acs = $wpdb->get_col($wpdb->prepare("SELECT DISTINCT meta_value FROM $wpdb->postmeta WHERE meta_key = %s ORDER BY meta_value ASC", $metakey) );
+			if($acs) {
+				foreach($acs as $ac) {
+					$display .= '<option value="' . $ac . '">' . $ac . '</option>';
+				}
+			}
+			$display .= '
+		</select>
+		<input type="submit" value="' . $acw_search_label . '" class="chzn-submit">
+	</form>';
+
+	return $display;
+}
+
+function ac_posts($atts, $content = null) { // autocomplete :: posts
+	extract(shortcode_atts(array(
+		'comments' => 'yes',
+		'category' => '',
+	), $atts));
+
+	$ac_comments = '';
+	$acw_search_label = get_option('acw_search_label');
+	$acw_select_placeholder = get_option('acw_select_placeholder');
+	$display = '';
+	$display .= '
+	<form name="search" action="' . $_SERVER['PHP_SELF'] . '" method="get">
+		<select name="s" class="chzn-select" data-placeholder="' . $acw_select_placeholder . '">
+			<option value=""></option>';
+			$autocomplete_args = array(
+				'post_type' => array('post'),
+				'showposts' => -1,
+				'offset' => 0,
+				'category_name' => $category,
+			);
+			$ac = new WP_Query($autocomplete_args);
+			if($ac->have_posts()) : while($ac->have_posts()) : $ac->the_post();
+				if($comments == 'yes')
+					$ac_comments = ' (' . get_comments_number(get_the_ID()) . ' comments)';
+				$display .= '<option value="' . str_replace('-', ' ', sanitize_title(get_the_title())) . '">' . get_the_title() . $ac_comments . '<option>';
+			endwhile; endif;
+
+			$display .= '
+		</select> <input type="submit" value="' . $acw_search_label . '" class="chzn-submit">
+	</form>';
+	return $display;
+
+	wp_reset_query();
+}
+
+function ac_pages($atts, $content = null) { // autocomplete :: posts
+	extract(shortcode_atts(array(
+		'comments' => 'yes',
+	), $atts));
+
+	$ac_comments = '';
+	$acw_search_label = get_option('acw_search_label');
+	$acw_select_placeholder = get_option('acw_select_placeholder');
+	$display = '';
+	$display .= '
+	<form name="search" action="' . $_SERVER['PHP_SELF'] . '" method="get">
+		<select name="s" class="chzn-select" data-placeholder="' . $acw_select_placeholder . '">
+			<option value=""></option>';
+			$autocomplete_args = array(
+				'post_type' => array('page'),
+				'showposts' => -1,
+				'offset' => 0,
+			);
+			$ac = new WP_Query($autocomplete_args);
+			if($ac->have_posts()) : while($ac->have_posts()) : $ac->the_post();
+				if($comments == 'yes')
+					$ac_comments = ' (' . get_comments_number(get_the_ID()) . ' comments)';
+				$display .= '<option value="' . str_replace('-', ' ', sanitize_title(get_the_title())) . '">' . get_the_title() . $ac_comments . '<option>';
+			endwhile; endif;
+
+			$display .= '
+		</select> <input type="submit" value="' . $acw_search_label . '" class="chzn-submit">
+	</form>';
+	return $display;
+
+	wp_reset_query();
+}
+
+function ac_all($atts, $content = null) { // autocomplete :: posts
+	extract(shortcode_atts(array(
+		'comments' => 'yes',
+	), $atts));
+
+	$ac_comments = '';
+	$acw_search_label = get_option('acw_search_label');
+	$acw_select_placeholder = get_option('acw_select_placeholder');
+	$display = '';
+	$display .= '
+	<form name="search" action="' . $_SERVER['PHP_SELF'] . '" method="get">
+		<select name="s" class="chzn-select" data-placeholder="' . $acw_select_placeholder . '">
+			<option value=""></option>';
+			$autocomplete_args = array(
+				'post_type' => array('post','page'),
+				'showposts' => -1,
+				'offset' => 0,
+			);
+			$ac = new WP_Query($autocomplete_args);
+			if($ac->have_posts()) : while($ac->have_posts()) : $ac->the_post();
+				if($comments == 'yes')
+					$ac_comments = ' (' . get_comments_number(get_the_ID()) . ' comments)';
+				$display .= '<option value="' . str_replace('-', ' ', sanitize_title(get_the_title())) . '">' . get_the_title() . $ac_comments . '<option>';
+			endwhile; endif;
+
+			$display .= '
+		</select> <input type="submit" value="' . $acw_search_label . '" class="chzn-submit">
+	</form>';
+	return $display;
+
+	wp_reset_query();
+}
+
+function ac_categories($atts, $content = null) { // autocomplete :: posts
+	extract(shortcode_atts(array(
+		'comments' => 'yes',
+	), $atts));
+
+	$ac_comments = '';
+	$acw_search_label = get_option('acw_search_label');
+	$acw_select_placeholder = get_option('acw_select_placeholder');
+	$display = '<form name="search" action="' . $_SERVER['PHP_SELF'] . '" method="get">';
+		$display .= wp_dropdown_categories(array(
+			'show_option_all' => 'All categories',
+			'class' => 'chzn-select',
+			'echo' => 0,
+			'show_count' => 1,
+		));
+
+		$display .= ' <input type="submit" value="' . $acw_search_label . '" class="chzn-submit">
+	</form>';
+
+	return $display;
+
+	wp_reset_query();
+}
+
+function ac_custom($atts, $content = null) { // autocomplete :: posts
+	extract(shortcode_atts(array(
+		'type' => '',
+	), $atts));
+
+	// <input type="hidden" name="post_type[]" value="articles" />
+	// <input type="hidden" name="post_type[]" value="post" />
+	// <input type="hidden" name="post_type[]" value="videos" />
+	// <input type="hidden" name="post_type[]" value="books" /> 
+
+	$ac_comments = '';
+	$acw_search_label = get_option('acw_search_label');
+	$acw_select_placeholder = get_option('acw_select_placeholder');
+	$display = '';
+	$display .= '
+	<form name="search" action="' . $_SERVER['PHP_SELF'] . '" method="get">
+		<select name="s" class="chzn-select" data-placeholder="' . $acw_select_placeholder . '">
+			<option value=""></option>';
+			$autocomplete_args = array(
+				'post_type' => array($type),
+				'showposts' => -1,
+				'offset' => 0,
+			);
+			$ac = new WP_Query($autocomplete_args);
+			if($ac->have_posts()) : while($ac->have_posts()) : $ac->the_post();
+	//			if($comments == 'yes')
+	//				$ac_comments = ' (' . get_comments_number(get_the_ID()) . ' comments)';
+				$display .= '<option value="' . str_replace('-', ' ', sanitize_title(get_the_title())) . '">' . get_the_title() . $ac_comments . '<option>';
+			endwhile; endif;
+
+			$display .= '
+		</select> <input type="submit" value="' . $acw_search_label . '" class="chzn-submit">
+	</form>';
+	return $display;
+
+	wp_reset_query();
+}
+
+function ac_taxonomy($atts, $content = null) { // autocomplete :: posts
+	extract(shortcode_atts(array(
+		'name' => '',
+	), $atts));
+
+	// <input type="hidden" name="post_type[]" value="articles" />
+	// <input type="hidden" name="post_type[]" value="post" />
+	// <input type="hidden" name="post_type[]" value="videos" />
+	// <input type="hidden" name="post_type[]" value="books" /> 
+
+	$ac_comments = '';
+	$acw_search_label = get_option('acw_search_label');
+	$acw_select_placeholder = get_option('acw_select_placeholder');
+	$display = '';
+
+	$myterms = get_terms($name, 'orderby=none&hide_empty');    
+
+	$display .= '
+	<form name="search" action="' . $_SERVER['PHP_SELF'] . '" method="get">
+		<select name="s" class="chzn-select" data-placeholder="' . $acw_select_placeholder . '">
+			<option value=""></option>';
+			foreach($myterms as $term) {
+				$display .= '<option value="'.$term->slug.'">'.$term->name.'</option>';
+			}
+
+			$display .= '
+		</select> <input type="submit" value="' . $acw_search_label . '" class="chzn-submit">
+	</form>';
+	return $display;
+
+	wp_reset_query();
+}
+
+function ac_tax_posts($atts, $content = null) { // autocomplete :: posts
+	extract(shortcode_atts(array(
+		'taxonomyname' => '',
+		'name' => '',
+		'type' => '',
+	), $atts));
+
+	$acw_search_label = get_option('acw_search_label');
+	$acw_select_placeholder = get_option('acw_select_placeholder');
+	$display = '';
+
+	$autocomplete_args = array(
+		"$taxonomyname" => "$name",
+		'post_type' => $type,
+	);
+	$ac = new WP_Query($autocomplete_args);
+	if($ac->have_posts()) {
+		$display .= '
+		<form name="search" action="' . $_SERVER['PHP_SELF'] . '" method="get">
+			<select name="s" class="chzn-select" data-placeholder="' . $acw_select_placeholder . '">
+				<option value=""></option>';
+				while($ac->have_posts()) : $ac->the_post();
+					$display .= '<option>'.str_replace('-', ' ', sanitize_title(get_the_title())).'</option>';
+				endwhile; wp_reset_query();
+			$display .= '
+			</select> <input type="submit" value="' . $acw_search_label . '" class="chzn-submit">
+		</form>';
+	}
+
+	return $display;
+
+	wp_reset_query();
+}
+
+function ac_tags($atts, $content = null) { // autocomplete :: posts
+	extract(shortcode_atts(array(
+		'name' => '',
+		'type' => '',
+	), $atts));
+
+	$acw_search_label = get_option('acw_search_label');
+	$acw_select_placeholder = get_option('acw_select_placeholder');
+	$display = '';
+	$tags = get_tags();
+
+	$display .= '
+	<form name="search" action="' . $_SERVER['PHP_SELF'] . '" method="get">
+		<select name="s" class="chzn-select" data-placeholder="' . $acw_select_placeholder . '">
+			<option value=""></option>';
+			foreach($tags as $tag) {
+				$display .= '<option value="'.$tag->slug.'">'.$tag->name.'</option>';
+			}
+
+			$display .= '
+		</select> <input type="submit" value="' . $acw_search_label . '" class="chzn-submit">
+	</form>';
+	return $display;
+
+	wp_reset_query();
+}
+
+function ac_tagged_posts($atts, $content = null) { // autocomplete :: posts
+	extract(shortcode_atts(array(
+		'tag' => '',
+		'comments' => 'no',
+	), $atts));
+
+	$ac_comments = '';
+	$acw_search_label = get_option('acw_search_label');
+	$acw_select_placeholder = get_option('acw_select_placeholder');
+	$display = '';
+	$display .= '
+	<form name="search" action="' . $_SERVER['PHP_SELF'] . '" method="get">
+		<select name="s" class="chzn-select" data-placeholder="' . $acw_select_placeholder . '">
+			<option value=""></option>';
+			$autocomplete_args = array(
+				'post_type' => array('post'),
+				'showposts' => -1,
+				'offset' => 0,
+				'tag' => $tag, // tag_slug__in
+			);
+			$ac = new WP_Query($autocomplete_args);
+			if($ac->have_posts()) : while($ac->have_posts()) : $ac->the_post();
+				if($comments == 'yes')
+					$ac_comments = ' (' . get_comments_number(get_the_ID()) . ' comments)';
+				$display .= '<option value="' . str_replace('-', ' ', sanitize_title(get_the_title())) . '">' . get_the_title() . $ac_comments . '<option>';
+			endwhile; endif;
+
+			$display .= '
+		</select> <input type="submit" value="' . $acw_search_label . '" class="chzn-submit">
+	</form>';
+	return $display;
+
+	wp_reset_query();
+}
+
+
+add_shortcode('ac-meta', 'ac_meta_value'); // shortcode, function
+add_shortcode('ac-posts', 'ac_posts'); // shortcode, function
+add_shortcode('ac-pages', 'ac_pages'); // shortcode, function
+add_shortcode('ac-all', 'ac_all'); // shortcode, function
+add_shortcode('ac-categories', 'ac_categories'); // shortcode, function
+add_shortcode('ac-custom', 'ac_custom'); // shortcode, function
+add_shortcode('ac-taxonomy', 'ac_taxonomy'); // shortcode, function
+add_shortcode('ac-tax-posts', 'ac_tax_posts'); // shortcode, function
+add_shortcode('ac-tags', 'ac_tags'); // shortcode, function
+add_shortcode('ac-tagged-posts', 'ac_tagged_posts'); // shortcode, function
+?>
