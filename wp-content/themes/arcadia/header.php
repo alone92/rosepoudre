@@ -22,12 +22,14 @@
 	
 	<!-- load scripts -->
 <?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); wp_head(); ?>
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/includes/js/jquery.clearfield.packed.js"></script>
 		<script type="text/javascript" src="//use.typekit.net/kus3kwi.js"></script>
 		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 		<!-- <link href='http://fonts.googleapis.com/css?family=Copse' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Copse|Montserrat:400,700' rel='stylesheet' type='text/css'> -->
 		<script type="text/javascript">
 			jQuery(function() {
+				jQuery('#input_1_1').clearField();
 				jQuery(window).resize(function() {
 			        // This will fire each time the window is resized:
 			        if(jQuery(window).width() >= 1024) {

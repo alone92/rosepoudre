@@ -93,9 +93,15 @@
 										<div class="row">
 											<div class="rightSidebar col-sm-2 col-md-2 col-lg-2">
 												<div class="redige">
-													<img src="<?php echo get_template_directory_uri(); ?>/images/vanessa.png" />
+													
+													<?php echo get_avatar( get_the_author_meta( 'ID' ), 100 ); ?>
 													<p class="intro">Rédigé par <br>
-													<a href="#">Vanessa Toklu</a></p>
+													<?php the_author_posts_link(); ?></p>
+													<p class="descript"><?php the_author_meta('description') ?></p>
+													<?php $boom = get_the_author_meta(ID); ?>
+													<p class="lelien"><a href="mailto:<?php echo get_the_author_meta('user_email', $boom); ?>">Email</a></p>
+													
+												</p>
 												</div>
 												<div class="goSocial">
 													<nav>

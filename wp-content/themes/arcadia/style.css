@@ -128,7 +128,7 @@ form, fieldset {
 
 h1, h2, h3, h4, h5, h6 {
     margin: 0 0 25px 0;
-    font-family: 'Bitter', Arial, sans-serif;
+    font-family: "museo", Arial, sans-serif;
     font-weight: 400;
     color: #5f5e5c;
 }
@@ -199,6 +199,12 @@ h6 {
     float: left;
     height: auto !important;
     margin-top: 40px;
+}
+
+
+
+.home .wp-biographia-container-top{
+	display:none;
 }
 
 .page-template-full-width-php #content, .page-template-page-masonry-php #content, .category #content, .tag #content, .search #content, .author #content {
@@ -613,6 +619,48 @@ h6 {
 .title-meta, #content .post-content.singleArt .intro {
 	color: #bbb;
 	font-size: 13px;
+	margin-bottom: 10px;
+}
+
+.lelien a{
+	width: 100%;
+	background: #fbbbaa;
+	display: block;
+	color: #fff;
+	padding: 10px 0px 10px 0px;
+	font-family: "museo";
+	font-weight: 300;
+	text-align: center;
+		-webkit-border-radius: 3px; 
+	-moz-border-radius: 3px; 
+	border-radius: 3px;
+	font-size: 14px;
+}
+
+.lelien a:hover{
+	background: #e7846d;
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.lelien a:before{
+ 	content: "+  ";
+ 	font-size: 20px;
+}
+
+.redige img{
+	-webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+}
+
+.title-meta, #content .post-content.singleArt p.descript{
+	text-align: left;
+	font-size: 12px;
+	line-height: 12px;
+	color: #bbb;
+	border-bottom: 10px;
 }
 
 #content .post-content.singleArt ol, #content .post-content.singleArt .leTexte ul{
@@ -1052,6 +1100,7 @@ box-shadow: none !important;
 
 #sidebar .widget_sb_tabbed_widget .tab-content {
 background: white;
+padding: 20px 20px;
 }
 
 .widget_sb_tabbed_widget ul.sb_tabs li a.tab-current {
@@ -1171,7 +1220,7 @@ box-shadow: none;
 #sidebar .widget_sb_tabbed_widget .t1 ul li a, #sidebar .widget_sb_tabbed_widget .t2 ul li a, .prodImg a{ 
 		width: 328px;
 		height: 140px;
-		background: rgba(78,33,31, 0.5);
+		background: rgba(231,132,109, 0.5);
 		color: white;
 		display: block;
     -moz-transition: 0.2s;
@@ -1182,6 +1231,7 @@ box-shadow: none;
     padding-top:30px;
     padding-left: 10px;
     overflow: hidden;
+    opacity: 0;
 }
 
 .prodImg a span{
@@ -1193,6 +1243,7 @@ box-shadow: none;
 .prodImg a:hover{
 	color: white;
 	text-decoration: none;
+
 }
 
 #sidebar .widget_sb_tabbed_widget .t1 ul li a span, #sidebar .widget_sb_tabbed_widget .t2 ul li a span{
@@ -1202,7 +1253,8 @@ box-shadow: none;
 }
 
 #sidebar .widget_sb_tabbed_widget .t1 ul li a:hover, #sidebar .widget_sb_tabbed_widget .t2 ul li a:hover, .prodImg a:hover{ 
-		background: rgba(78,33,31, 0.8);
+		background: rgba(231,132,109, 0.8);
+		    opacity: 1;
 }
 
 #sidebar .widget_sb_tabbed_widget{
@@ -1447,7 +1499,7 @@ box-shadow: none;
 
 #respond h3 {
     padding: 0 0 10px 0;
-    font-family: bitter;
+    font-family: "museo";
 	font-size: 18px;
     margin-bottom: 0px;
     margin-top: 25px;
@@ -1462,7 +1514,7 @@ box-shadow: none;
 
 #respond label {
 	display: inline-block;
-    font-weight: bold;
+    font-weight: 300;
     font-size: 12px;
     margin: 5px 0 0 0;
 }
@@ -1624,11 +1676,10 @@ box-shadow: none;
 .vcard img {
     float: left;
     background: #fff;
-    border: solid 1px #eee;
     padding: 3px;
-    -webkit-border-radius: 3px; 
-	-moz-border-radius: 3px; 
-	border-radius: 3px;
+    -webkit-border-radius: 30px; 
+	-moz-border-radius: 30px; 
+	border-radius: 30px;
 }
 
 .fn {
@@ -1763,7 +1814,7 @@ box-shadow: none;
 }
 
 #footer .widgettitle {
-	font-family: bitter; 
+	font-family: "museo"; 
 	font-weight: 400;
 	font-size: 18px;
 	border-bottom: solid 1px #2c2c2c;
@@ -2336,7 +2387,7 @@ height: auto;
 }
 
 .featureBox .contenu{
-	padding: 30px;
+	padding: 10px 30px 0px 30px;
 }
 
 .featureBox .contenu h2{
@@ -2348,12 +2399,15 @@ height: auto;
 		-moz-transition: 0.2s;
 	-webkit-transition: 0.2s;
 	transition: 0.2s;
-	font-size: 40px;
+	font-size: 36px;
 	line-height: 40px;
 	font-weight: 100;
 	font-family: "museo";
 }
 
+#content .featureBox .contenu p{
+	font-size: 15px;
+}
 .featureBox .contenu h2 a:hover{
 	color: #535353;
 	text-decoration: none;
@@ -2794,16 +2848,16 @@ text-decoration: none;
 }
 
 #content .post-content.singleArt .leTexte{
-	min-height: 450px;
+	min-height: 650px;
 }
 
 #content .title-wrap.singleArt a, #content .post-content.singleArt .leTexte a{
-	color:#f77979;
+	color:#e7846d;
 }
 
 #content .title-wrap.singleArt a:hover, #content .post-content.singleArt .leTexte a:hover{
 	text-decoration: none;
-	border-bottom: 1px dotted #f77979;
+	border-bottom: 1px dotted #e7846d;
 }
 
 
@@ -2869,7 +2923,7 @@ span[class*="fontawesome-"]:before {
 }
 
 .goSocial nav a {
-	color: #f77979;
+	color: #fbbbaa;
 	display: block;
 	height: 45px;
 	line-height: 45px;
@@ -2883,14 +2937,22 @@ span[class*="fontawesome-"]:before {
 }
 
 .goSocial nav ul li ul {
-	background: #f77979;
+	background: #fbbbaa;
 	margin-top: 20px;
 	padding: 5px 0;
 	position: absolute;
 }
 
+.goSocial nav ul li:first-child a{
+	cursor: default;
+}
+
+.goSocial nav ul li a{
+	cursor: pointer;
+}
+
 .goSocial nav ul li ul:before {
-	background: #f77979;
+	background: #fbbbaa;
 	content: "";
 	height: 8px;
 	left: 50%;
@@ -2913,6 +2975,10 @@ span[class*="fontawesome-"]:before {
 }
 
 .goSocial nav ul li ul li a:hover {
-	background-color: #e34848;
+	background-color: #e7846d;
 	text-decoration: none !important;
+}
+
+#gforms_confirmation_message{
+	color: #e7846d;
 }
